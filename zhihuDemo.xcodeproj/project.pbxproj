@@ -16,6 +16,7 @@
 		EB7A901F1B3A643400B060C4 /* WMDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7A901E1B3A643400B060C4 /* WMDetailController.m */; };
 		EB7A90231B3A64E300B060C4 /* UIViewController+PopPush.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7A90221B3A64E300B060C4 /* UIViewController+PopPush.m */; };
 		EB7A90261B3A650700B060C4 /* UINavigationController+Transition.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7A90251B3A650700B060C4 /* UINavigationController+Transition.m */; };
+		EBA1F0161BFEE275003528E6 /* WMStartController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA1F0151BFEE275003528E6 /* WMStartController.m */; };
 		EBA210391BFC4F61003B593F /* UIBarButtonItem+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA210241BFC4F61003B593F /* UIBarButtonItem+Night.m */; };
 		EBA2103A1BFC4F61003B593F /* UIButton+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA210261BFC4F61003B593F /* UIButton+Night.m */; };
 		EBA2103B1BFC4F61003B593F /* UIImageView+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA210281BFC4F61003B593F /* UIImageView+Night.m */; };
@@ -87,6 +88,8 @@
 		EB7A90221B3A64E300B060C4 /* UIViewController+PopPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PopPush.m"; sourceTree = "<group>"; };
 		EB7A90241B3A650700B060C4 /* UINavigationController+Transition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Transition.h"; sourceTree = "<group>"; };
 		EB7A90251B3A650700B060C4 /* UINavigationController+Transition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Transition.m"; sourceTree = "<group>"; };
+		EBA1F0141BFEE274003528E6 /* WMStartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMStartController.h; sourceTree = "<group>"; };
+		EBA1F0151BFEE275003528E6 /* WMStartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMStartController.m; sourceTree = "<group>"; };
 		EBA210231BFC4F61003B593F /* UIBarButtonItem+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Night.h"; sourceTree = "<group>"; };
 		EBA210241BFC4F61003B593F /* UIBarButtonItem+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Night.m"; sourceTree = "<group>"; };
 		EBA210251BFC4F61003B593F /* UIButton+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Night.h"; sourceTree = "<group>"; };
@@ -380,6 +383,8 @@
 				EBCB8AC61B37B6B0008846C3 /* WMHomeController.m */,
 				EB7A901D1B3A643400B060C4 /* WMDetailController.h */,
 				EB7A901E1B3A643400B060C4 /* WMDetailController.m */,
+				EBA1F0141BFEE274003528E6 /* WMStartController.h */,
+				EBA1F0151BFEE275003528E6 /* WMStartController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -576,6 +581,7 @@
 				EBCB8AA81B37B4B7008846C3 /* WMDotView.m in Sources */,
 				EBCB8AA71B37B4B7008846C3 /* WMAdPageView.m in Sources */,
 				EBA210411BFC4F61003B593F /* UIView+Night.m in Sources */,
+				EBA1F0161BFEE275003528E6 /* WMStartController.m in Sources */,
 				EB7A90231B3A64E300B060C4 /* UIViewController+PopPush.m in Sources */,
 				EB67BE681B70AEA4004F2844 /* WMNavigationController.m in Sources */,
 				EBCB8AD01B37C4D3008846C3 /* WMNews.m in Sources */,

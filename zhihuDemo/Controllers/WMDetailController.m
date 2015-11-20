@@ -37,6 +37,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *leftBtn;
 @property (weak, nonatomic) IBOutlet UIButton *rightBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *guideImg;
 
 @property (strong, nonatomic) WMStories *stories;
 
@@ -65,6 +66,26 @@
     _headView.layer.zPosition = -1;
     
     [self startAnimate];
+    
+    NSString *guide = [[NSUserDefaults standardUserDefaults] objectForKey:@"guide"];
+    if ([guide integerValue] > 0) {
+    } else {
+        [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"guide"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        _guideImg.hidden = FALSE;
+        CGRect frame = self.view.bounds;
+        frame.origin.x = frame.size.width;
+        [UIView animateWithDuration:2 animations:^{
+            _guideImg.alpha = 0.5;
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:1 animations:^{
+                _guideImg.alpha = 0;
+                _guideImg.frame = frame;
+            } completion:^(BOOL finished) {
+                _guideImg.hidden = TRUE;
+            }];
+        }];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated

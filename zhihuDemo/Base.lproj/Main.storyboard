@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EfL-wi-N4b">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZPM-9V-3jT">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -227,6 +227,10 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Guide_Back" translatesAutoresizingMaskIntoConstraints="NO" id="erS-rD-ZLx">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -235,8 +239,11 @@
                             <constraint firstItem="Tch-gP-2SO" firstAttribute="top" secondItem="Zvf-gh-vfl" secondAttribute="top" id="79t-lo-2dw"/>
                             <constraint firstAttribute="trailing" secondItem="XtS-L1-IlC" secondAttribute="trailing" id="8RZ-sF-Ys2"/>
                             <constraint firstItem="jYm-Ch-cyp" firstAttribute="top" secondItem="Zvf-gh-vfl" secondAttribute="top" id="CTv-PZ-9eS"/>
+                            <constraint firstItem="erS-rD-ZLx" firstAttribute="height" secondItem="Zvf-gh-vfl" secondAttribute="height" id="D8a-vu-s9S"/>
+                            <constraint firstItem="erS-rD-ZLx" firstAttribute="top" secondItem="Zvf-gh-vfl" secondAttribute="top" id="DfJ-rs-OqT"/>
                             <constraint firstAttribute="bottom" secondItem="MXa-Bk-Qwv" secondAttribute="bottom" id="EAf-DH-utX"/>
                             <constraint firstAttribute="trailing" secondItem="MXa-Bk-Qwv" secondAttribute="trailing" id="MQv-fa-S6D"/>
+                            <constraint firstAttribute="trailing" secondItem="erS-rD-ZLx" secondAttribute="trailing" id="MiC-Ib-LNr"/>
                             <constraint firstAttribute="bottom" secondItem="XtS-L1-IlC" secondAttribute="bottom" id="S3C-0R-yTb"/>
                             <constraint firstItem="XtS-L1-IlC" firstAttribute="top" secondItem="QEL-KX-w8c" secondAttribute="bottom" id="T6J-xr-6Nl"/>
                             <constraint firstItem="MXa-Bk-Qwv" firstAttribute="top" secondItem="Zvf-gh-vfl" secondAttribute="top" id="WKo-lJ-vGZ"/>
@@ -244,12 +251,15 @@
                             <constraint firstItem="MXa-Bk-Qwv" firstAttribute="leading" secondItem="Zvf-gh-vfl" secondAttribute="leading" id="a9r-kc-cfF"/>
                             <constraint firstItem="zr2-TA-S2x" firstAttribute="top" secondItem="Zvf-gh-vfl" secondAttribute="top" id="b8C-IG-W5F"/>
                             <constraint firstItem="Tch-gP-2SO" firstAttribute="leading" secondItem="Zvf-gh-vfl" secondAttribute="leading" id="eKv-4n-Slo"/>
+                            <constraint firstItem="erS-rD-ZLx" firstAttribute="width" secondItem="Zvf-gh-vfl" secondAttribute="width" id="h0G-Dm-ghn"/>
                             <constraint firstItem="XtS-L1-IlC" firstAttribute="top" secondItem="MXa-Bk-Qwv" secondAttribute="bottom" id="jDQ-B7-kmV"/>
                             <constraint firstItem="MXa-Bk-Qwv" firstAttribute="top" secondItem="Zvf-gh-vfl" secondAttribute="top" id="krx-Gq-XKC"/>
                             <constraint firstAttribute="trailing" secondItem="zr2-TA-S2x" secondAttribute="trailing" id="p8R-qw-TeW"/>
                             <constraint firstItem="jYm-Ch-cyp" firstAttribute="leading" secondItem="Zvf-gh-vfl" secondAttribute="leading" id="plf-1b-Ajb"/>
+                            <constraint firstItem="erS-rD-ZLx" firstAttribute="leading" secondItem="Zvf-gh-vfl" secondAttribute="leading" id="rWy-Hi-4mw"/>
                             <constraint firstAttribute="trailing" secondItem="Tch-gP-2SO" secondAttribute="trailing" id="rh6-pw-bZG"/>
                             <constraint firstAttribute="trailing" secondItem="jYm-Ch-cyp" secondAttribute="trailing" id="tfM-VZ-KmI"/>
+                            <constraint firstAttribute="bottom" secondItem="erS-rD-ZLx" secondAttribute="bottom" id="uu1-3a-saI"/>
                             <constraint firstItem="kl0-87-QTN" firstAttribute="top" secondItem="XtS-L1-IlC" secondAttribute="bottom" id="uw8-gA-duY"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -261,6 +271,8 @@
                             <mask key="constraints">
                                 <exclude reference="EAf-DH-utX"/>
                                 <exclude reference="WKo-lJ-vGZ"/>
+                                <exclude reference="MiC-Ib-LNr"/>
+                                <exclude reference="uu1-3a-saI"/>
                                 <exclude reference="T6J-xr-6Nl"/>
                                 <exclude reference="uw8-gA-duY"/>
                             </mask>
@@ -269,6 +281,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="bottomLayout" destination="uw8-gA-duY" id="aDG-Dn-4H8"/>
+                        <outlet property="guideImg" destination="erS-rD-ZLx" id="v81-mm-632"/>
                         <outlet property="headHLayout" destination="SUo-Ew-NuT" id="lMZ-sC-Lxd"/>
                         <outlet property="headTopLayout" destination="79t-lo-2dw" id="K7Z-dG-6e2"/>
                         <outlet property="headView" destination="Tch-gP-2SO" id="sJP-Yd-vIy"/>
@@ -293,7 +306,7 @@
         <!--Home Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="WMHomeController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WMHomeController" id="vXZ-lx-hvc" customClass="WMHomeController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -532,10 +545,115 @@
             </objects>
             <point key="canvasLocation" x="746" y="846"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="nqv-5P-Nqp">
+            <objects>
+                <viewController id="ZPM-9V-3jT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ltp-9K-yOG"/>
+                        <viewControllerLayoutGuide type="bottom" id="T3s-UB-iRS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="B9M-EW-uRZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gqk-Wi-k7R">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <animations/>
+                                <connections>
+                                    <segue destination="EfL-wi-N4b" kind="embed" id="0wA-9I-3oC"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="gqk-Wi-k7R" secondAttribute="bottom" id="De7-DW-QDq"/>
+                            <constraint firstAttribute="trailing" secondItem="gqk-Wi-k7R" secondAttribute="trailing" id="JQK-7K-axm"/>
+                            <constraint firstItem="gqk-Wi-k7R" firstAttribute="leading" secondItem="B9M-EW-uRZ" secondAttribute="leading" id="jHt-uL-i37"/>
+                            <constraint firstItem="gqk-Wi-k7R" firstAttribute="top" secondItem="B9M-EW-uRZ" secondAttribute="top" id="odQ-6J-XH8"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dxZ-0C-DxJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-16" y="846"/>
+        </scene>
+        <!--Start Controller-->
+        <scene sceneID="x9q-Lg-bxs">
+            <objects>
+                <viewController storyboardIdentifier="WMStartController" id="590-NE-noM" customClass="WMStartController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zer-fX-IIL"/>
+                        <viewControllerLayoutGuide type="bottom" id="D3S-ik-Bcq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MAs-8h-IlZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="p2246994590.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="7Dm-7x-8sg">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <animations/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015年 zwm. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="juG-lX-co6">
+                                <rect key="frame" x="36" y="535" width="248" height="13"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="21" translatesAutoresizingMaskIntoConstraints="NO" id="Bqu-F7-Ecv">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="juG-lX-co6" firstAttribute="centerX" secondItem="MAs-8h-IlZ" secondAttribute="centerX" id="9sD-MM-z4v"/>
+                            <constraint firstItem="7Dm-7x-8sg" firstAttribute="centerY" secondItem="MAs-8h-IlZ" secondAttribute="centerY" id="BTB-Mn-svt"/>
+                            <constraint firstAttribute="bottom" secondItem="juG-lX-co6" secondAttribute="bottom" constant="20" id="DDI-Kc-SWO"/>
+                            <constraint firstItem="7Dm-7x-8sg" firstAttribute="centerX" secondItem="MAs-8h-IlZ" secondAttribute="centerX" id="EY7-ff-Jl9"/>
+                            <constraint firstAttribute="bottom" secondItem="Bqu-F7-Ecv" secondAttribute="bottom" id="MPb-Wc-DgW"/>
+                            <constraint firstItem="7Dm-7x-8sg" firstAttribute="width" secondItem="MAs-8h-IlZ" secondAttribute="width" id="Ndp-JW-GZv"/>
+                            <constraint firstAttribute="trailing" secondItem="Bqu-F7-Ecv" secondAttribute="trailing" id="Tq2-Ju-8bl"/>
+                            <constraint firstItem="Bqu-F7-Ecv" firstAttribute="top" secondItem="MAs-8h-IlZ" secondAttribute="top" id="Xkp-cH-Mhl"/>
+                            <constraint firstItem="Bqu-F7-Ecv" firstAttribute="leading" secondItem="MAs-8h-IlZ" secondAttribute="leading" id="joR-bu-egq"/>
+                            <constraint firstAttribute="bottom" secondItem="7Dm-7x-8sg" secondAttribute="bottom" id="lIq-Nm-iq0"/>
+                            <constraint firstItem="7Dm-7x-8sg" firstAttribute="leading" secondItem="MAs-8h-IlZ" secondAttribute="leading" id="ldV-o5-DAg"/>
+                            <constraint firstAttribute="trailing" secondItem="7Dm-7x-8sg" secondAttribute="trailing" id="o3O-1c-dnt"/>
+                            <constraint firstItem="7Dm-7x-8sg" firstAttribute="centerX" secondItem="MAs-8h-IlZ" secondAttribute="centerX" id="qof-Ja-fBB"/>
+                            <constraint firstItem="7Dm-7x-8sg" firstAttribute="centerY" secondItem="MAs-8h-IlZ" secondAttribute="centerY" id="v9C-Sw-L6B"/>
+                            <constraint firstItem="7Dm-7x-8sg" firstAttribute="height" secondItem="MAs-8h-IlZ" secondAttribute="height" id="zWP-jh-ndX"/>
+                            <constraint firstItem="7Dm-7x-8sg" firstAttribute="top" secondItem="MAs-8h-IlZ" secondAttribute="top" id="zsR-H3-VR6"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="EY7-ff-Jl9"/>
+                                <exclude reference="lIq-Nm-iq0"/>
+                                <exclude reference="ldV-o5-DAg"/>
+                                <exclude reference="o3O-1c-dnt"/>
+                                <exclude reference="v9C-Sw-L6B"/>
+                                <exclude reference="zsR-H3-VR6"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="describeLbl" destination="juG-lX-co6" id="El8-Ik-M7g"/>
+                        <outlet property="iconImg" destination="Bqu-F7-Ecv" id="Ldf-nA-1yd"/>
+                        <outlet property="startImg" destination="7Dm-7x-8sg" id="vrB-lf-Hb8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MM3-R3-vyZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-16" y="1469"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="G3J-SL-Cd9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EfL-wi-N4b" customClass="WMNavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="WMNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="EfL-wi-N4b" customClass="WMNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q8E-fh-nqL">
@@ -554,10 +672,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="21" width="320" height="480"/>
         <image name="Bg_mengceng" width="320" height="180"/>
+        <image name="Guide_Back" width="640" height="1136"/>
         <image name="Management_Placeholder" width="60" height="60"/>
         <image name="bg_mengDown" width="320" height="60"/>
         <image name="bg_xiangqing" width="320" height="60"/>
+        <image name="p2246994590.jpg" width="1012" height="692"/>
         <image name="speak_xuxian" width="575" height="1"/>
     </resources>
 </document>
