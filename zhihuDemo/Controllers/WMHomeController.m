@@ -158,7 +158,7 @@
                 
                 WMDetailController *nextVC = [self.storyboard instantiateViewControllerWithIdentifier:@"WMDetailController"];
                 
-                nextVC.indexPath = [NSIndexPath indexPathForRow:clickIndex inSection:0];
+                nextVC.indexPath = [[WMZhihu sharedInstance] findWithID:clickIndex];
                 nextVC.startRect = CGRectZero;
 
                 [weakself.navigationController pushViewController:nextVC animated:YES];
@@ -323,7 +323,8 @@
     if (!_headView.hidden) {
         _headView.hidden = TRUE;
         _mengImage.hidden = FALSE;
-        [self changeNav];
+        UIImage *image = [self imageWithColor:[UIColor colorWithRed:_HomeR green:_HomeG blue:_HomeB alpha:_alpha]];
+        [_mengImage setImage:image];
     }
 }
 

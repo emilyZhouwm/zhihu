@@ -46,6 +46,9 @@ CGFloat const stepDuration = 0.01;
 }
 
 - (void)setNormalBarTintColor:(UIColor *)normalBarTintColor {
+    if ([WMNightManager currentStatus] == WMNightStatusNormal) {
+        [self setBarTintColor:normalBarTintColor];
+    }
     objc_setAssociatedObject(self, @selector(normalBarTintColor), normalBarTintColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -81,6 +84,9 @@ CGFloat const stepDuration = 0.01;
 }
 
 - (void)setNormalTintColor:(UIColor *)normalTintColor {
+    if ([WMNightManager currentStatus] == WMNightStatusNormal) {
+        [self setTintColor:normalTintColor];
+    }
     objc_setAssociatedObject(self, @selector(normalTintColor), normalTintColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

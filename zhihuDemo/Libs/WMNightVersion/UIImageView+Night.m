@@ -38,6 +38,9 @@
 }
 
 - (void)setNormalImage:(UIImage *)normalImage {
+    if ([WMNightManager currentStatus] == WMNightStatusNormal) {
+        [self setImage:normalImage];
+    }
     objc_setAssociatedObject(self, @selector(normalImage), normalImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

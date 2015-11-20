@@ -43,6 +43,9 @@
 }
 
 - (void)setNormalBackgroundColor:(UIColor *)normalBackgroundColor {
+    if ([WMNightManager currentStatus] == WMNightStatusNormal) {
+        [self setBackgroundColor:normalBackgroundColor];
+    }
     objc_setAssociatedObject(self, @selector(normalBackgroundColor), normalBackgroundColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

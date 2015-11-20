@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) NSMutableArray *newsAry;
 
+- (NSIndexPath *)findWithID:(NSInteger)index;
+
 @end
 
 @interface WMStories : NSObject

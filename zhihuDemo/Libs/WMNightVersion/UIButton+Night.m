@@ -112,6 +112,9 @@
 }
 
 - (void)setNormalTColorN:(UIColor *)normalTitleColorN {
+    if ([WMNightManager currentStatus] == WMNightStatusNormal) {
+        [self setTitleColor:normalTitleColorN forState:UIControlStateNormal];
+    }
     objc_setAssociatedObject(self, @selector(normalTColorN), normalTitleColorN, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -124,6 +127,9 @@
 }
 
 - (void)setNormalTColorH:(UIColor *)normalTitleColorH {
+    if ([WMNightManager currentStatus] == WMNightStatusNormal) {
+        [self setTitleColor:normalTitleColorH forState:UIControlStateHighlighted];
+    }
     objc_setAssociatedObject(self, @selector(normalTColorH), normalTitleColorH, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -136,6 +142,9 @@
 }
 
 - (void)setNormalTColorS:(UIColor *)normalTitleColorS {
+    if ([WMNightManager currentStatus] == WMNightStatusNormal) {
+        [self setTitleColor:normalTitleColorS forState:UIControlStateSelected];
+    }
     objc_setAssociatedObject(self, @selector(normalTColorS), normalTitleColorS, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -148,6 +157,9 @@
 }
 
 - (void)setNormalTColorD:(UIColor *)normalTitleColorD {
+    if ([WMNightManager currentStatus] == WMNightStatusNormal) {
+        [self setTitleColor:normalTitleColorD forState:UIControlStateDisabled];
+    }
     objc_setAssociatedObject(self, @selector(normalTColorD), normalTitleColorD, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -233,6 +245,9 @@
 }
 
 - (void)setNormalImageN:(UIImage *)normalImage {
+    if ([WMNightManager currentStatus] == WMNightStatusNormal) {
+        [self setImage:normalImage forState:UIControlStateNormal];
+    }
     objc_setAssociatedObject(self, @selector(normalImageN), normalImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -245,6 +260,9 @@
 }
 
 - (void)setNormalImageH:(UIImage *)normalImage {
+    if ([WMNightManager currentStatus] == WMNightStatusNormal) {
+        [self setImage:normalImage forState:UIControlStateHighlighted];
+    }
     objc_setAssociatedObject(self, @selector(normalImageH), normalImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -257,6 +275,9 @@
 }
 
 - (void)setNormalImageS:(UIImage *)normalImage {
+    if ([WMNightManager currentStatus] == WMNightStatusNormal) {
+        [self setImage:normalImage forState:UIControlStateSelected];
+    }
     objc_setAssociatedObject(self, @selector(normalImageS), normalImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -269,6 +290,9 @@
 }
 
 - (void)setNormalImageD:(UIImage *)normalImage {
+    if ([WMNightManager currentStatus] == WMNightStatusNormal) {
+        [self setImage:normalImage forState:UIControlStateDisabled];
+    }
     objc_setAssociatedObject(self, @selector(normalImageD), normalImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -354,6 +378,9 @@
 }
 
 - (void)setNormalBackImageN:(UIImage *)normalImage {
+    if ([WMNightManager currentStatus] == WMNightStatusNormal) {
+        [self setBackgroundImage:normalImage forState:UIControlStateNormal];
+    }
     objc_setAssociatedObject(self, @selector(normalBackImageN), normalImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -366,6 +393,9 @@
 }
 
 - (void)setNormalBackImageH:(UIImage *)normalImage {
+    if ([WMNightManager currentStatus] == WMNightStatusNormal) {
+        [self setBackgroundImage:normalImage forState:UIControlStateHighlighted];
+    }
     objc_setAssociatedObject(self, @selector(normalBackImageH), normalImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -378,6 +408,9 @@
 }
 
 - (void)setNormalBackImageS:(UIImage *)normalImage {
+    if ([WMNightManager currentStatus] == WMNightStatusNormal) {
+        [self setBackgroundImage:normalImage forState:UIControlStateSelected];
+    }
     objc_setAssociatedObject(self, @selector(normalBackImageS), normalImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -390,6 +423,9 @@
 }
 
 - (void)setNormalBackImageD:(UIImage *)normalImage {
+    if ([WMNightManager currentStatus] == WMNightStatusNormal) {
+        [self setBackgroundImage:normalImage forState:UIControlStateDisabled];
+    }
     objc_setAssociatedObject(self, @selector(normalBackImageD), normalImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

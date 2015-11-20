@@ -43,6 +43,9 @@
 }
 
 - (void)setNormalSeparatorColor:(UIColor *)normalSeparatorColor {
+    if ([WMNightManager currentStatus] == WMNightStatusNormal) {
+        [self setSeparatorColor:normalSeparatorColor];
+    }
     objc_setAssociatedObject(self, @selector(normalSeparatorColor), normalSeparatorColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

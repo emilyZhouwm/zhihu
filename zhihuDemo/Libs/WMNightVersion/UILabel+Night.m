@@ -43,6 +43,9 @@
 }
 
 - (void)setNormalTextColor:(UIColor *)normalTextColor {
+    if ([WMNightManager currentStatus] == WMNightStatusNormal) {
+        [self setTextColor:normalTextColor];
+    }
     objc_setAssociatedObject(self, @selector(normalTextColor), normalTextColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

@@ -21,6 +21,23 @@
     return sharedInstance;
 }
 
+- (NSIndexPath *)findWithID:(NSInteger)index
+{
+    WMNews *top = _newsAry[0];
+    WMStories *cur = top.topStories[index];
+    for (NSInteger i=0; i<_newsAry.count; i++) {
+        WMNews *tempNews = _newsAry[i];
+        NSInteger j = 0;
+        for (WMStories *stories in tempNews.stories) {
+            if ([stories.ID isEqualToNumber:cur.ID]) {
+                return [NSIndexPath indexPathForRow:j inSection:i];
+            }
+            j++;
+        }
+    }
+    return nil;
+}
+
 @end
 
 @implementation WMStories

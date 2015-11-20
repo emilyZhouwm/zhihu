@@ -43,6 +43,9 @@
 }
 
 - (void)setNormalBarTintColor:(UIColor *)normalBarTintColor {
+    if ([WMNightManager currentStatus] == WMNightStatusNormal) {
+        [self setBarTintColor:normalBarTintColor];
+    }
     objc_setAssociatedObject(self, @selector(normalBarTintColor), normalBarTintColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
