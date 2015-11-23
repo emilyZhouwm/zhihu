@@ -81,7 +81,7 @@
     _HomeR = kDayR;
     _HomeG = kDayG;
     _HomeB = kDayB;
-    _HeadHeight = 100 * kScreen_Width / 150;
+    _HeadHeight = 100 * kScreen_Width / 180;
     _HeadTop = -(kScreen_Width - _HeadHeight) * 0.5;
     _headTopLayout.constant = _HeadTop;
     _headView.backgroundColor = [UIColor colorWithRed:kDayR green:kDayG blue:kDayB alpha:1];
@@ -224,7 +224,7 @@
     UILabel *titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, tableView.frame.size.width, 30)];
 
     WMNews *tempNews = [WMZhihu sharedInstance].newsAry[section];
-    titleLbl.text = tempNews.dateStr;
+    titleLbl.text = (section == 0 ? @"今日要闻" : tempNews.dateStr);
     titleLbl.font = [UIFont systemFontOfSize:16];
     titleLbl.textAlignment = NSTextAlignmentCenter;
     
@@ -272,6 +272,7 @@
     if (scrollView.contentOffset.y < 0) {
         _headTopLayout.constant = _HeadTop - scrollView.contentOffset.y * 0.5f;
     } else {
+        [_progressView setProgress:0];
         if (scrollView.contentOffset.y > _HeadHeight - 40) {
             _adPageView.hidden = TRUE;
             
@@ -290,7 +291,7 @@
             }
             if (indexPath.section <= 1) {
                 WMNews *tempNews = [WMZhihu sharedInstance].newsAry[indexPath.section];
-                self.navigationItem.title = tempNews.dateStr;
+                self.navigationItem.title = (indexPath.section == 0 ? @"今日要闻" : tempNews.dateStr);
                 if (indexPath.section == 1) {
                     self.navigationItem.title = @"";
                     [self hideNav];

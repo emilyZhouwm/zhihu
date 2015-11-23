@@ -78,7 +78,7 @@
         [UIView animateWithDuration:2 animations:^{
             _guideImg.alpha = 0.5;
         } completion:^(BOOL finished) {
-            [UIView animateWithDuration:1 animations:^{
+            [UIView animateWithDuration:0.5 animations:^{
                 _guideImg.alpha = 0;
                 _guideImg.frame = frame;
             } completion:^(BOOL finished) {

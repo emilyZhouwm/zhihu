@@ -30,7 +30,7 @@
         _backgroundLayer = [CAShapeLayer layer];
         _backgroundLayer.frame = self.bounds;
         _backgroundLayer.fillColor = nil;
-        _backgroundLayer.strokeColor = [UIColor lightGrayColor].CGColor;
+        _backgroundLayer.strokeColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:0.6].CGColor;
         _backgroundLayer.lineWidth = kLineW;
         UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.center.x - self.frame.origin.x, self.center.y - self.frame.origin.y)
                                                             radius:(self.bounds.size.width - kLineW)/ 2
