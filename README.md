@@ -5,6 +5,28 @@
 ![](./zhihu.gif)
 #:
 ![](./zhihu2.gif)
+
+#黑夜模式，比如：
+	#import "WMNightManager.h"
+	
+    if ([WMNightManager currentStatus] == WMNightStatusNight) {
+        [WMNightManager dawnComing];
+    } else {
+        [WMNightManager nightFalling];
+    }
+    
+	titleLbl.textColor = kDayColor;
+	titleLbl.nightTextColor = kNightColor;
+
+###支持storyboard设置，比如：
+    
+![](./tip.png)
+
+###可以直接拖入使用或者：                         
+###pod 'WMNightManager', :git => 'https://github.com/emilyZhouwm/zhihu.git'
+###或者
+###pod 'WMNightManager', '~> 1.0.0'
+
 ##其他欢迎star
 ###带推拉效果的广告轮播
 https://github.com/emilyZhouwm/WMADPageView
