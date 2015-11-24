@@ -3,10 +3,10 @@ Pod::Spec.new do |s|
 
   s.name         = "WMNightManager"
   s.version      = "1.0.0"
-  s.summary      = “为APP增加黑夜模式，支持storyboard"
+  s.summary      = "为APP增加黑夜模式，支持storyboard"
 
   s.homepage     = "https://github.com/emilyZhouwm/zhihu"
-  s.license      = "MIT"
+  s.license      = "MIT"c
   s.author       = { "EmilyZhou" => "scarlettzwm@gmail.com" }
 
   s.platform     = :ios, "7.0"
