@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.summary      = "为APP增加黑夜模式，支持storyboard"
 
   s.homepage     = "https://github.com/emilyZhouwm/zhihu"
-  s.license      = "MIT"c
+  s.license      = "MIT"
   s.author       = { "EmilyZhou" => "scarlettzwm@gmail.com" }
 
   s.platform     = :ios, "7.0"
