@@ -23,8 +23,6 @@
 ![](./tip.png)
 
 ###可以直接拖入使用或者：                         
-###pod 'WMNightManager', :git => 'https://github.com/emilyZhouwm/zhihu.git'
-###或者
 ###pod 'WMNightManager', '~> 1.0.0'
 
 ##其他欢迎star
