@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 
 #define kPageControlH 20
-#define kAutoRollTime 3
+#define kAutoRollTime 5
 
 typedef void (^WMAdTitleViewCallback)(NSInteger clickIndex);
 

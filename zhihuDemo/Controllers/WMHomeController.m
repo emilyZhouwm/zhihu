@@ -163,6 +163,7 @@
 
                 [weakself.navigationController pushViewController:nextVC animated:YES];
             }];
+            weakself.adTitleView.bAutoRoll = TRUE;
         }
     }];
 }
