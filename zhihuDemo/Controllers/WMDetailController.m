@@ -237,10 +237,10 @@
     if (scrollView == _scrollView) {
         _statusView.hidden = TRUE;
         _mengImage.hidden = FALSE;
-        if ([UIApplication sharedApplication].statusBarStyle != UIStatusBarStyleLightContent) {
-            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-        }
         if (scrollView.contentOffset.y < 0) {
+            if ([UIApplication sharedApplication].statusBarStyle != UIStatusBarStyleLightContent) {
+                [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+            }
             _headHLayout.constant = 160 - scrollView.contentOffset.y;
         } else {
             _headTopLayout.constant = -scrollView.contentOffset.y * 0.5;
@@ -251,6 +251,10 @@
                 }
                 _statusView.hidden = FALSE;
                 _mengImage.hidden = TRUE;
+            } else {
+                if ([UIApplication sharedApplication].statusBarStyle != UIStatusBarStyleLightContent) {
+                    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+                }
             }
         }
     }
