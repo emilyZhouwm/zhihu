@@ -99,10 +99,11 @@
     MJRefreshHeader *header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestHome)];
     _tableView.mj_header = header;
     
+    __weak typeof(self) weakself = self;
     _kvo = [FBKVOController controllerWithObserver:self];
     [_kvo observe:header keyPath:@"pullingPercent" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
         CGFloat percent = [change[NSKeyValueChangeNewKey] floatValue];
-        [_progressView setProgress:percent];
+        [weakself.progressView setProgress:percent];
     }];
     
     [self requestHome];

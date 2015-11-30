@@ -12,8 +12,12 @@
 #import "WMStory.h"
 #import "WMNetManager.h"
 #import "UIImageView+WebCache.h"
+#import "FBKVOController.h"
 
 @interface WMDetailController () <UIScrollViewDelegate, UIWebViewDelegate>
+{
+    FBKVOController *_kvo;
+}
 
 @property (strong, nonatomic) WMStory *story;
 
@@ -86,6 +90,14 @@
             }];
         }];
     }
+   
+    __weak typeof(self) weakself = self;
+    _kvo = [FBKVOController controllerWithObserver:self];
+    [_kvo observe:_webView.scrollView keyPath:@"contentSize" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
+        weakself.webHLayout.constant = weakself.webView.scrollView.contentSize.height;
+        [weakself.webView setNeedsLayout];
+        [weakself.webView layoutIfNeeded];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -161,8 +173,8 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    _webHLayout.constant = self.view.frame.size.height - 160 - _toolBar.frame.size.height;
-    [webView.scrollView setContentSize:CGSizeMake(webView.frame.size.width, _webHLayout.constant)];
+    //_webHLayout.constant = self.view.frame.size.height - 160 - _toolBar.frame.size.height;
+    //[webView.scrollView setContentSize:CGSizeMake(webView.frame.size.width, _webHLayout.constant)];
     return YES;
 }
 
