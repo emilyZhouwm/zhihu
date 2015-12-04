@@ -141,6 +141,9 @@
 - (void)requestHome
 {
     [_progressView setProgress:0];
+    if ([_activityView isAnimating]) {
+        return;
+    }
     [_activityView startAnimating];
     __weak typeof(self) weakself = self;
     [WMNetManager requestHomeWithBlock:^(id data, NSError *error) {
@@ -148,7 +151,13 @@
         [weakself.tableView.mj_header endRefreshing];
         if (data && [data isKindOfClass:[WMNews class]]) {
             if ([WMZhihu sharedInstance].newsAry.count > 0) {
-                [[WMZhihu sharedInstance].newsAry replaceObjectAtIndex:0 withObject:data];
+                WMNews *tempNews = [WMZhihu sharedInstance].newsAry[0];
+                if ([tempNews.date isEqualToDate:((WMNews *)data).date]) {
+                    [[WMZhihu sharedInstance].newsAry replaceObjectAtIndex:0 withObject:data];
+                } else {
+                    [[WMZhihu sharedInstance].newsAry removeAllObjects];
+                    [[WMZhihu sharedInstance].newsAry addObject:data];
+                }
             } else {
                 [[WMZhihu sharedInstance].newsAry addObject:data];
             }
@@ -165,6 +174,10 @@
                 [weakself.navigationController pushViewController:nextVC animated:YES];
             }];
             weakself.adTitleView.bAutoRoll = TRUE;
+            
+            if ([WMZhihu sharedInstance].newsAry.count<2) {
+                [weakself requestStories];
+            }
         }
     }];
 }
