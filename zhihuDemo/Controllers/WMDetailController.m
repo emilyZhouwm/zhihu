@@ -63,6 +63,7 @@
     
     [self setCurStories:_indexPath];
     
+    self.webView.scrollView.scrollEnabled = FALSE;
     _webHLayout.constant = self.view.frame.size.height - 160 - _toolBar.frame.size.height;
     _webView.delegate = self;
 
@@ -70,26 +71,7 @@
     _headView.layer.zPosition = -1;
     
     [self startAnimate];
-    
-    NSString *guide = [[NSUserDefaults standardUserDefaults] objectForKey:@"guide"];
-    if ([guide integerValue] > 0) {
-    } else {
-        [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"guide"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        _guideImg.hidden = FALSE;
-        CGRect frame = self.view.bounds;
-        frame.origin.x = frame.size.width;
-        [UIView animateWithDuration:2 animations:^{
-            _guideImg.alpha = 0.5;
-        } completion:^(BOOL finished) {
-            [UIView animateWithDuration:0.5 animations:^{
-                _guideImg.alpha = 0;
-                _guideImg.frame = frame;
-            } completion:^(BOOL finished) {
-                _guideImg.hidden = TRUE;
-            }];
-        }];
-    }
+    [self showGuide];
    
     __weak typeof(self) weakself = self;
     _kvo = [FBKVOController controllerWithObserver:self];
@@ -241,6 +223,29 @@
             }];
         }];
     }];
+}
+
+- (void)showGuide
+{
+    NSString *guide = [[NSUserDefaults standardUserDefaults] objectForKey:@"guide"];
+    if ([guide integerValue] > 0) {
+    } else {
+        [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"guide"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        _guideImg.hidden = FALSE;
+        CGRect frame = self.view.bounds;
+        frame.origin.x = frame.size.width;
+        [UIView animateWithDuration:2 animations:^{
+            _guideImg.alpha = 0.5;
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.5 animations:^{
+                _guideImg.alpha = 0;
+                _guideImg.frame = frame;
+            } completion:^(BOOL finished) {
+                _guideImg.hidden = TRUE;
+            }];
+        }];
+    }
 }
 
 #pragma mark - UIScrollViewDelegate

@@ -38,4 +38,4 @@ SPEC CHECKSUMS:
   MJRefresh: c95f0d541606ef584dab3fbeda28f4f32b4aca6e
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0
