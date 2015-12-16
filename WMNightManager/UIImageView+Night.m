@@ -11,7 +11,8 @@
 
 @implementation UIImageView (Night)
 
-- (UIImage *)nightImage {
+- (UIImage *)nightImage
+{
     UIImage *night = objc_getAssociatedObject(self, @selector(nightImage));
     if (night) {
         return night;
@@ -19,7 +20,8 @@
     return self.image;
 }
 
-- (void)setNightImage:(UIImage *)nightImage {
+- (void)setNightImage:(UIImage *)nightImage
+{
     if (!objc_getAssociatedObject(self, @selector(normalImage))) {
         objc_setAssociatedObject(self, @selector(normalImage), self.image, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
@@ -29,7 +31,8 @@
     objc_setAssociatedObject(self, @selector(nightImage), nightImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (UIImage *)normalImage {
+- (UIImage *)normalImage
+{
     UIImage *normal = objc_getAssociatedObject(self, @selector(normalImage));
     if (normal) {
         return normal;
@@ -37,21 +40,24 @@
     return self.image;
 }
 
-- (void)setNormalImage:(UIImage *)normalImage {
+- (void)setNormalImage:(UIImage *)normalImage
+{
     if ([WMNightManager currentStatus] == WMNightStatusNormal) {
         [self setImage:normalImage];
     }
     objc_setAssociatedObject(self, @selector(normalImage), normalImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (void)changeColor {
+- (void)changeColor
+{
     UIImage *image = ([WMNightManager currentStatus] == WMNightStatusNight) ? self.nightImage : self.normalImage;
     if (image != self.image) {
         [self setImage:image];
     }
 }
 
-- (void)changeColorWithDuration:(CGFloat)duration {
+- (void)changeColorWithDuration:(CGFloat)duration
+{
     [self changeColor];
 }
 

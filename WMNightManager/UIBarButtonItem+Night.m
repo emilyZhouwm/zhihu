@@ -11,7 +11,8 @@
 
 @implementation UIBarButtonItem (Night)
 
-- (UIColor *)nightTintColor {
+- (UIColor *)nightTintColor
+{
     UIColor *nightColor = objc_getAssociatedObject(self, @selector(nightTintColor));
     if (nightColor) {
         return nightColor;
@@ -19,7 +20,8 @@
     return self.tintColor;
 }
 
-- (void)setNightTintColor:(UIColor *)nightTintColor {
+- (void)setNightTintColor:(UIColor *)nightTintColor
+{
     [self checkNormalButtonItem];
     if ([WMNightManager currentStatus] == WMNightStatusNight) {
         [self setTintColor:nightTintColor];
@@ -40,7 +42,8 @@
     }
 }
 
-- (UIColor *)normalTintColor {
+- (UIColor *)normalTintColor
+{
     UIColor *normalColor = objc_getAssociatedObject(self, @selector(normalTintColor));
     if (normalColor) {
         return normalColor;
@@ -48,7 +51,8 @@
     return self.tintColor;
 }
 
-- (void)setNormalTintColor:(UIColor *)normalTintColor {
+- (void)setNormalTintColor:(UIColor *)normalTintColor
+{
     if ([WMNightManager currentStatus] == WMNightStatusNormal) {
         [self setTintColor:normalTintColor];
     }
@@ -57,13 +61,15 @@
 
 #pragma mark - ChangeColor
 
-- (void)changeColorWithDuration:(CGFloat)duration {
+- (void)changeColorWithDuration:(CGFloat)duration
+{
     [UIView animateWithDuration:duration animations:^{
         [self setTintColor:([WMNightManager currentStatus] == WMNightStatusNight) ? self.nightTintColor : self.normalTintColor];
     }];
 }
 
-- (void)changeColor {
+- (void)changeColor
+{
     [self setTintColor:([WMNightManager currentStatus] == WMNightStatusNight) ? self.nightTintColor : self.normalTintColor];
 }
 

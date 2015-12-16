@@ -11,7 +11,8 @@
 
 @implementation UITabBar (Night)
 
-- (UIColor *)nightBarTintColor {
+- (UIColor *)nightBarTintColor
+{
     UIColor *nightColor = objc_getAssociatedObject(self, @selector(nightBarTintColor));
     if (nightColor) {
         return nightColor;
@@ -19,7 +20,8 @@
     return self.barTintColor;
 }
 
-- (void)setNightBarTintColor:(UIColor *)nightBarTintColor {
+- (void)setNightBarTintColor:(UIColor *)nightBarTintColor
+{
     [self checkNormalTabBar];
     if ([WMNightManager currentStatus] == WMNightStatusNight) {
         [self setBarTintColor:nightBarTintColor];
@@ -34,7 +36,8 @@
     }
 }
 
-- (UIColor *)normalBarTintColor {
+- (UIColor *)normalBarTintColor
+{
     UIColor *normalColor = objc_getAssociatedObject(self, @selector(normalBarTintColor));
     if (normalColor) {
         return normalColor;
@@ -42,7 +45,8 @@
     return self.barTintColor;
 }
 
-- (void)setNormalBarTintColor:(UIColor *)normalBarTintColor {
+- (void)setNormalBarTintColor:(UIColor *)normalBarTintColor
+{
     if ([WMNightManager currentStatus] == WMNightStatusNormal) {
         [self setBarTintColor:normalBarTintColor];
     }
@@ -51,7 +55,8 @@
 
 #pragma mark - ChangeColor
 
-- (void)changeColorWithDuration:(CGFloat)duration {
+- (void)changeColorWithDuration:(CGFloat)duration
+{
     if ([WMNightManager currentStatus] == WMNightStatusNight) {
         [UIView animateWithDuration:duration animations:^{
             [self setBarTintColor:self.nightBarTintColor];
@@ -65,7 +70,8 @@
     }
 }
 
-- (void)changeColor {
+- (void)changeColor
+{
     if ([WMNightManager currentStatus] == WMNightStatusNight) {
         [self setBarTintColor:self.nightBarTintColor];
         [self setBackgroundColor:self.nightBackgroundColor];

@@ -12,7 +12,8 @@
 
 @implementation UIViewController (Night)
 
-+ (void)load {
++ (void)load
+{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         Class class = [self class];
@@ -42,18 +43,21 @@
     });
 }
 
-- (void)hook_viewDidLoad {
+- (void)hook_viewDidLoad
+{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeColor) name:WMNightFallingNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeColor) name:WMDawnComingNotification object:nil];
     [self hook_viewDidLoad];
 }
 
-- (void)hook_viewWillAppear:(BOOL)animated {
+- (void)hook_viewWillAppear:(BOOL)animated
+{
     [self hook_viewWillAppear:animated];
     [self changeColor];
 }
 
-- (void)changeColor {
+- (void)changeColor
+{
     [WMNightManager changeColor:self.view withDuration:WMNightAnimationDuration];
     [self.navigationItem.leftBarButtonItem changeColor];
     [self.navigationItem.rightBarButtonItem changeColor];

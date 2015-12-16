@@ -11,7 +11,8 @@
 
 @implementation UILabel (Night)
 
-- (UIColor *)nightTextColor {
+- (UIColor *)nightTextColor
+{
     UIColor *nightColor = objc_getAssociatedObject(self, @selector(nightTextColor));
     if (nightColor) {
         return nightColor;
@@ -19,7 +20,8 @@
     return self.textColor;
 }
 
-- (void)setNightTextColor:(UIColor *)nightTextColor {
+- (void)setNightTextColor:(UIColor *)nightTextColor
+{
     [self checkNormalT];
     if ([WMNightManager currentStatus] == WMNightStatusNight) {
         [self setTextColor:nightTextColor];
@@ -34,7 +36,8 @@
     }
 }
 
-- (UIColor *)normalTextColor {
+- (UIColor *)normalTextColor
+{
     UIColor *normalColor = objc_getAssociatedObject(self, @selector(normalTextColor));
     if (normalColor) {
         return normalColor;
@@ -42,7 +45,8 @@
     return self.textColor;
 }
 
-- (void)setNormalTextColor:(UIColor *)normalTextColor {
+- (void)setNormalTextColor:(UIColor *)normalTextColor
+{
     if ([WMNightManager currentStatus] == WMNightStatusNormal) {
         [self setTextColor:normalTextColor];
     }
@@ -51,7 +55,8 @@
 
 #pragma mark - ChangeColor
 
-- (void)changeColorWithDuration:(CGFloat)duration {
+- (void)changeColorWithDuration:(CGFloat)duration
+{
     if ([WMNightManager currentStatus] == WMNightStatusNight) {
         [UIView animateWithDuration:duration animations:^{
             [self setTextColor:self.nightTextColor];
@@ -65,7 +70,8 @@
     }
 }
 
-- (void)changeColor {
+- (void)changeColor
+{
     if ([WMNightManager currentStatus] == WMNightStatusNight) {
         [self setTextColor:self.nightTextColor];
         [self setBackgroundColor:self.nightBackgroundColor];

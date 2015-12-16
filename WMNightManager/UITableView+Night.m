@@ -11,7 +11,8 @@
 
 @implementation UITableView (Night)
 
-- (UIColor *)nightSeparatorColor {
+- (UIColor *)nightSeparatorColor
+{
     UIColor *nightColor = objc_getAssociatedObject(self, @selector(nightSeparatorColor));
     if (nightColor) {
         return nightColor;
@@ -19,7 +20,8 @@
     return self.separatorColor;
 }
 
-- (void)setNightSeparatorColor:(UIColor *)nightSeparatorColor {
+- (void)setNightSeparatorColor:(UIColor *)nightSeparatorColor
+{
     [self checkNormalSeparator];
     if ([WMNightManager currentStatus] == WMNightStatusNight) {
         [self setSeparatorColor:nightSeparatorColor];
@@ -34,7 +36,8 @@
     }
 }
 
-- (UIColor *)normalSeparatorColor {
+- (UIColor *)normalSeparatorColor
+{
     UIColor *normalColor = objc_getAssociatedObject(self, @selector(normalSeparatorColor));
     if (normalColor) {
         return normalColor;
@@ -42,7 +45,8 @@
     return self.separatorColor;
 }
 
-- (void)setNormalSeparatorColor:(UIColor *)normalSeparatorColor {
+- (void)setNormalSeparatorColor:(UIColor *)normalSeparatorColor
+{
     if ([WMNightManager currentStatus] == WMNightStatusNormal) {
         [self setSeparatorColor:normalSeparatorColor];
     }
@@ -51,7 +55,8 @@
 
 #pragma mark - ChangeColor
 
-- (void)changeColorWithDuration:(CGFloat)duration {
+- (void)changeColorWithDuration:(CGFloat)duration
+{
     if ([WMNightManager currentStatus] == WMNightStatusNight) {
         [UIView animateWithDuration:duration animations:^{
             [self setSeparatorColor:self.nightSeparatorColor];
@@ -65,7 +70,8 @@
     }
 }
 
-- (void)changeColor {
+- (void)changeColor
+{
     if ([WMNightManager currentStatus] == WMNightStatusNight) {
         [self setSeparatorColor:self.nightSeparatorColor];
         [self setBackgroundColor:self.nightBackgroundColor];

@@ -14,7 +14,8 @@ CGFloat const stepDuration = 0.01;
 
 @implementation UINavigationBar (Night)
 
-- (UIColor *)nightBarTintColor {
+- (UIColor *)nightBarTintColor
+{
     UIColor *nightColor = objc_getAssociatedObject(self, @selector(nightBarTintColor));
     if (nightColor) {
         return nightColor;
@@ -22,7 +23,8 @@ CGFloat const stepDuration = 0.01;
     return self.barTintColor;
 }
 
-- (void)setNightBarTintColor:(UIColor *)nightBarTintColor {
+- (void)setNightBarTintColor:(UIColor *)nightBarTintColor
+{
     [self checkNormalBarTint];
     if ([WMNightManager currentStatus] == WMNightStatusNight) {
         [self setBarTintColor:nightBarTintColor];
@@ -37,7 +39,8 @@ CGFloat const stepDuration = 0.01;
     }
 }
 
-- (UIColor *)normalBarTintColor {
+- (UIColor *)normalBarTintColor
+{
     UIColor *normalColor = objc_getAssociatedObject(self, @selector(normalBarTintColor));
     if (normalColor) {
         return normalColor;
@@ -45,14 +48,16 @@ CGFloat const stepDuration = 0.01;
     return self.barTintColor;
 }
 
-- (void)setNormalBarTintColor:(UIColor *)normalBarTintColor {
+- (void)setNormalBarTintColor:(UIColor *)normalBarTintColor
+{
     if ([WMNightManager currentStatus] == WMNightStatusNormal) {
         [self setBarTintColor:normalBarTintColor];
     }
     objc_setAssociatedObject(self, @selector(normalBarTintColor), normalBarTintColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (UIColor *)nightTintColor {
+- (UIColor *)nightTintColor
+{
     UIColor *nightColor = objc_getAssociatedObject(self, @selector(nightTintColor));
     if (nightColor) {
         return nightColor;
@@ -60,7 +65,8 @@ CGFloat const stepDuration = 0.01;
     return self.tintColor;
 }
 
-- (void)setNightTintColor:(UIColor *)nightTintColor {
+- (void)setNightTintColor:(UIColor *)nightTintColor
+{
     [self checkNormalTint];
     if ([WMNightManager currentStatus] == WMNightStatusNight) {
         [self setTintColor:nightTintColor];
@@ -75,7 +81,8 @@ CGFloat const stepDuration = 0.01;
     }
 }
 
-- (UIColor *)normalTintColor {
+- (UIColor *)normalTintColor
+{
     UIColor *normalColor = objc_getAssociatedObject(self, @selector(normalTintColor));
     if (normalColor) {
         return normalColor;
@@ -83,7 +90,8 @@ CGFloat const stepDuration = 0.01;
     return self.tintColor;
 }
 
-- (void)setNormalTintColor:(UIColor *)normalTintColor {
+- (void)setNormalTintColor:(UIColor *)normalTintColor
+{
     if ([WMNightManager currentStatus] == WMNightStatusNormal) {
         [self setTintColor:normalTintColor];
     }
@@ -107,7 +115,8 @@ CGFloat const stepDuration = 0.01;
 
 #pragma mark - ChangeColor
 
-- (void)changeColorWithDuration:(CGFloat)duration {
+- (void)changeColorWithDuration:(CGFloat)duration
+{
     if ([WMNightManager currentStatus] == WMNightStatusNight) {
         
         NSArray *colorArray = [UIColor arrayFromColor:self.barTintColor ToColor:self.nightBarTintColor duration:duration stepDuration:stepDuration];
@@ -132,7 +141,8 @@ CGFloat const stepDuration = 0.01;
     }
 }
 
-- (void)changeColor {
+- (void)changeColor
+{
     if ([WMNightManager currentStatus] == WMNightStatusNight) {
         [self setBarTintColor:self.nightBarTintColor];
         [self setTintColor:self.nightTintColor];

@@ -28,7 +28,8 @@ CGFloat const WMNightAnimationDuration = 0.3f;
 
 @implementation WMNightManager
 
-+ (WMNightManager *)sharedInstance {
++ (WMNightManager *)sharedInstance
+{
     static dispatch_once_t once;
     static WMNightManager *instance;
     dispatch_once(&once, ^{
@@ -37,28 +38,31 @@ CGFloat const WMNightAnimationDuration = 0.3f;
     return instance;
 }
 
-+ (void)nightFalling {
++ (void)nightFalling
+{
     self.sharedInstance.nightStatus = WMNightStatusNight;
     //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
-+ (void)dawnComing {
++ (void)dawnComing
+{
     self.sharedInstance.nightStatus = WMNightStatusNormal;
     //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
-+ (WMNightStatus)currentStatus {
++ (WMNightStatus)currentStatus
+{
     return self.sharedInstance.nightStatus;
 }
 
-- (void)setNightStatus:(WMNightStatus)nightStatus {
+- (void)setNightStatus:(WMNightStatus)nightStatus
+{
     if (_nightStatus == nightStatus) {
-        // if type does not change, don't execute code below to enhance performance.
         return;
     }
     _nightStatus = nightStatus;
-//    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-//    [self.class changeColor:window.subviews.lastObject withDuration:WMNightAnimationDuration];
+    //UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    //[self.class changeColor:window.subviews.lastObject withDuration:WMNightAnimationDuration];
     if (nightStatus == WMNightStatusNight) {
         [[NSNotificationCenter defaultCenter] postNotificationName:WMNightFallingNotification object:nil];
     } else {
@@ -66,17 +70,16 @@ CGFloat const WMNightAnimationDuration = 0.3f;
     }
 }
 
-+ (void)changeColor:(id <WMNightChangeColorProtocol>)object {
++ (void)changeColor:(id <WMNightChangeColorProtocol>)object
+{
     if ([object respondsToSelector:@selector(changeColor)]) {
         [object changeColor];
     }
     if ([object respondsToSelector:@selector(subviews)]) {
         if (![object subviews]) {
-            // Basic case, do nothing.
             return;
         } else {
             for (id subview in [object subviews]) {
-                // recursice darken all the subviews of current view.
                 [self changeColor:subview];
                 if ([subview respondsToSelector:@selector(changeColor)]) {
                     [subview changeColor];
@@ -86,17 +89,16 @@ CGFloat const WMNightAnimationDuration = 0.3f;
     }
 }
 
-+ (void)changeColor:(id <WMNightChangeColorProtocol>)object withDuration:(CGFloat)duration {
++ (void)changeColor:(id <WMNightChangeColorProtocol>)object withDuration:(CGFloat)duration
+{
     if ([object respondsToSelector:@selector(changeColorWithDuration:)]) {
         [object changeColorWithDuration:duration];
     }
     if ([object respondsToSelector:@selector(subviews)]) {
         if (![object subviews]) {
-            // Basic case, do nothing.
             return;
         } else {
             for (id subview in [object subviews]) {
-                // recursice darken all the subviews of current view.
                 [self changeColor:subview withDuration:duration];
                 if ([subview respondsToSelector:@selector(changeColorWithDuration:)]) {
                     [subview changeColorWithDuration:duration];

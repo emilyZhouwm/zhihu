@@ -11,7 +11,8 @@
 
 @implementation UIView (Night)
 
-- (UIColor *)nightBackgroundColor {
+- (UIColor *)nightBackgroundColor
+{
     UIColor *nightColor = objc_getAssociatedObject(self, @selector(nightBackgroundColor));
     if (nightColor) {
         return nightColor;
@@ -19,7 +20,8 @@
     return self.backgroundColor;
 }
 
-- (void)setNightBackgroundColor:(UIColor *)nightBackgroundColor {
+- (void)setNightBackgroundColor:(UIColor *)nightBackgroundColor
+{
     [self checkNormal];
     if ([WMNightManager currentStatus] == WMNightStatusNight) {
         [self setBackgroundColor:nightBackgroundColor];
@@ -34,7 +36,8 @@
     }
 }
 
-- (UIColor *)normalBackgroundColor {
+- (UIColor *)normalBackgroundColor
+{
     UIColor *normalColor = objc_getAssociatedObject(self, @selector(normalBackgroundColor));
     if (normalColor) {
         return normalColor;
@@ -42,7 +45,8 @@
     return self.backgroundColor;
 }
 
-- (void)setNormalBackgroundColor:(UIColor *)normalBackgroundColor {
+- (void)setNormalBackgroundColor:(UIColor *)normalBackgroundColor
+{
     if ([WMNightManager currentStatus] == WMNightStatusNormal) {
         [self setBackgroundColor:normalBackgroundColor];
     }
@@ -51,13 +55,15 @@
 
 #pragma mark - ChangeColor
 
-- (void)changeColorWithDuration:(CGFloat)duration {
+- (void)changeColorWithDuration:(CGFloat)duration
+{
     [UIView animateWithDuration:duration animations:^{
         [self setBackgroundColor:([WMNightManager currentStatus] == WMNightStatusNight) ? self.nightBackgroundColor : self.normalBackgroundColor];
     }];
 }
 
-- (void)changeColor {
+- (void)changeColor
+{
     [self setBackgroundColor:([WMNightManager currentStatus] == WMNightStatusNight) ? self.nightBackgroundColor : self.normalBackgroundColor];
 }
 
