@@ -19,7 +19,7 @@ typedef enum {
 typedef void(^NetworkBlock)(id data, NSError *error);
 typedef void(^NetProgressdBlock)(CGFloat progressValue);
 
-@interface WMNetwork : AFHTTPRequestOperationManager
+@interface WMNetwork : AFHTTPSessionManager
 
 + (id)sharedInstance;
 
@@ -34,17 +34,5 @@ typedef void(^NetProgressdBlock)(CGFloat progressValue);
            withName:(NSString *)name
            andBlock:(NetworkBlock)block
       progerssBlock:(NetProgressdBlock)progress;
-
-+ (AFHTTPRequestOperation *)upWithFile:(NSString *)filePath
-                                 toUrl:(NSString *)urlPath
-                            withParams:(NSDictionary *)params
-                              andBlock:(NetworkBlock)block
-                         progerssBlock:(NetProgressdBlock)progress;
-
-+ (AFHTTPRequestOperation *)downWithUrl:(NSString *)urlPath
-                             withParams:(NSDictionary *)params
-                                 toPath:(NSString *)destPath
-                               andBlock:(NetworkBlock)block
-                          progerssBlock:(NetProgressdBlock)progress;
 
 @end
