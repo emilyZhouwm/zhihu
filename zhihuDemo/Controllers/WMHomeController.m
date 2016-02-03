@@ -93,9 +93,7 @@
     _adTitleView = [[WMAdTitleView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, _HeadHeight)];
     _adTitleView.backgroundColor = [UIColor clearColor];
     [_tableView.tableHeaderView addSubview:_adTitleView];
-    
-    [WMZhihu sharedInstance].newsAry = @[].mutableCopy;
- 
+
     MJRefreshHeader *header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestHome)];
     _tableView.mj_header = header;
     
@@ -106,6 +104,7 @@
         [weakself.progressView setProgress:percent];
     }];
     
+    [[WMZhihu sharedInstance] load];
     [self requestHome];
 }
 

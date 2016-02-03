@@ -16,9 +16,12 @@
 
 - (NSIndexPath *)findWithID:(NSInteger)index;
 
+- (void)save;
+- (void)load;
+
 @end
 
-@interface WMStories : NSObject
+@interface WMStories : NSObject <NSCoding>
 
 @property (strong, nonatomic) NSNumber *ID;
 @property (copy, nonatomic) NSString *title;
@@ -29,7 +32,7 @@
 
 @end
 
-@interface WMNews : NSObject
+@interface WMNews : NSObject <NSCoding>
 
 @property (strong, nonatomic) NSDate *date;
 @property (strong, nonatomic) NSArray *stories;

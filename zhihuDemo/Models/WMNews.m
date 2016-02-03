@@ -21,6 +21,15 @@
     return sharedInstance;
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _newsAry = @[].mutableCopy;
+    }
+    return self;
+}
+
 - (NSIndexPath *)findWithID:(NSInteger)index
 {
     WMNews *top = _newsAry[0];
@@ -36,6 +45,28 @@
         }
     }
     return nil;
+}
+
+- (void)save
+{
+    NSMutableData *data = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    
+    [archiver encodeObject:_newsAry forKey:@"news"];
+    [archiver finishEncoding];
+    NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingString:@"/news.plist"];
+    [data writeToFile:path atomically:YES];
+}
+
+- (void)load
+{
+    NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingString:@"/news.plist"];
+    NSData *data = [[NSMutableData alloc] initWithContentsOfFile:path];
+    if (data.length > 0) {
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+        [_newsAry addObjectsFromArray:[unarchiver decodeObjectForKey:@"news"]];
+        [unarchiver finishDecoding];
+    }
 }
 
 @end
@@ -58,6 +89,26 @@
     }
     
     return oldValue;
+}
+
+#pragma mark - NSCoding
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_ID forKey:@"ID"];
+    [aCoder encodeObject:_title forKey:@"title"];
+    [aCoder encodeObject:_image forKey:@"image"];
+    [aCoder encodeObject:_images forKey:@"images"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init]) {
+        _ID = [aDecoder decodeObjectForKey:@"ID"];
+        _title = [aDecoder decodeObjectForKey:@"title"];
+        _image = [aDecoder decodeObjectForKey:@"image"];
+        _images = [aDecoder decodeObjectForKey:@"images"];
+    }
+    return self;
 }
 
 @end
@@ -135,6 +186,24 @@
     return ([components1 year] == [components2 year]
             && [components1 month] == [components2 month]
             && [components1 day] == [components2 day]);
+}
+
+#pragma mark - NSCoding
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_date forKey:@"date"];
+    [aCoder encodeObject:_stories forKey:@"stories"];
+    [aCoder encodeObject:_topStories forKey:@"topStories"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init]) {
+        _date = [aDecoder decodeObjectForKey:@"date"];
+        _stories = [aDecoder decodeObjectForKey:@"stories"];
+        _topStories = [aDecoder decodeObjectForKey:@"topStories"];
+    }
+    return self;
 }
 
 @end
