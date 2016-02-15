@@ -122,7 +122,6 @@
     }
     _titleLbl.text = _story.title;
     _imageSourceLbl.text = _story.imageSource;
-    
     if (_story.body.length > 0) {
         if ([WMNightManager currentStatus] == WMNightStatusNight) {
             NSString *html = [NSString stringWithFormat:@"<html><head><link rel=\"stylesheet\" href=%@</head><body><div class=\"night\">%@</div></body></html>", _story.css[0], [_story.body stringByReplacingOccurrencesOfString:@"<div class=\"img-place-holder\"></div>" withString:@""]];
@@ -143,6 +142,10 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    //NSInteger height = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight;"] intValue];
+    //NSString *javascript = [NSString stringWithFormat:@"window.scrollBy(0, %ld);", (long)height];
+    //NSString *javascript = @"window.scrollBy(0, 0);";
+    //[webView stringByEvaluatingJavaScriptFromString:javascript];
     _webHLayout.constant = webView.scrollView.contentSize.height;
     [_webView setNeedsLayout];
     [_webView layoutIfNeeded];
@@ -155,8 +158,6 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    //_webHLayout.constant = self.view.frame.size.height - 160 - _toolBar.frame.size.height;
-    //[webView.scrollView setContentSize:CGSizeMake(webView.frame.size.width, _webHLayout.constant)];
     return YES;
 }
 
@@ -282,6 +283,7 @@
 {
     NSIndexPath *pre = [self getPreIndex];
     if (pre) {
+        [_scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
         [self setCurStories:pre];
     }
 }
@@ -291,6 +293,7 @@
     WMNews *tempNews = [WMZhihu sharedInstance].newsAry[_indexPath.section];
     NSIndexPath *next = [self getNextIndex:tempNews.stories.count];
     if (next) {
+        [_scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
         [self setCurStories:next];
     }
 }
