@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZPM-9V-3jT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZPM-9V-3jT">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -302,27 +302,12 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ng4-ed-uoM" customClass="WMAdPageView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9f6-CK-ihT">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="nightBackgroundColor">
-                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.14938766891891891" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="9f6-CK-ihT" firstAttribute="top" secondItem="Ng4-ed-uoM" secondAttribute="top" id="1gQ-J7-fNy"/>
                                     <constraint firstAttribute="width" secondItem="Ng4-ed-uoM" secondAttribute="height" multiplier="1:1" id="5OY-2R-Ato"/>
                                     <constraint firstAttribute="width" secondItem="Ng4-ed-uoM" secondAttribute="height" multiplier="16:11" id="Idp-iO-85G"/>
                                     <constraint firstAttribute="width" secondItem="Ng4-ed-uoM" secondAttribute="height" multiplier="16:11" id="Ifi-N8-iPt"/>
                                     <constraint firstAttribute="height" constant="220" id="Lc7-GC-Yja"/>
-                                    <constraint firstItem="9f6-CK-ihT" firstAttribute="leading" secondItem="Ng4-ed-uoM" secondAttribute="leading" id="Tqe-c3-35S"/>
-                                    <constraint firstItem="9f6-CK-ihT" firstAttribute="width" secondItem="Ng4-ed-uoM" secondAttribute="width" id="bC5-bc-o7d"/>
-                                    <constraint firstItem="9f6-CK-ihT" firstAttribute="height" secondItem="Ng4-ed-uoM" secondAttribute="height" id="cxH-dN-onU"/>
                                     <constraint firstAttribute="width" secondItem="Ng4-ed-uoM" secondAttribute="height" multiplier="16:11" id="fGU-20-hIy"/>
                                     <constraint firstAttribute="width" secondItem="Ng4-ed-uoM" secondAttribute="height" multiplier="1:1" id="pj0-Du-WGp"/>
                                 </constraints>

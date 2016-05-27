@@ -121,9 +121,9 @@
     } else {
         _scView.contentSize = CGSizeMake(self.frame.size.width * 3, self.frame.size.height);
     }
-    _pageControl.numberOfPages = titleAry.count;
     
     [self reloadTitles];
+    _pageControl.numberOfPages = titleAry.count;
 }
 
 - (void)tapAds

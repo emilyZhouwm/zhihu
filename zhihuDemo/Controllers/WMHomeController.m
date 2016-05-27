@@ -140,6 +140,7 @@
 - (void)requestHome
 {
     [_progressView setProgress:0];
+    [_tableView.mj_header endRefreshing];
     if ([_activityView isAnimating]) {
         return;
     }
@@ -147,7 +148,6 @@
     __weak typeof(self) weakself = self;
     [WMNetManager requestHomeWithBlock:^(id data, NSError *error) {
         [weakself.activityView stopAnimating];
-        [weakself.tableView.mj_header endRefreshing];
         if (data && [data isKindOfClass:[WMNews class]]) {
             if ([WMZhihu sharedInstance].newsAry.count > 0) {
                 WMNews *tempNews = [WMZhihu sharedInstance].newsAry[0];
@@ -283,8 +283,19 @@
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (scrollView.contentOffset.y < 0) {
-        _headTopLayout.constant = _HeadTop - scrollView.contentOffset.y * 0.5f;
+    if (scrollView.contentOffset.y <= 0) {
+        CGFloat offset = _HeadTop - scrollView.contentOffset.y * 0.5f;
+        if (_headTopLayout.constant != offset) {
+            if (_headTopLayout.constant - offset > 5 || _headTopLayout.constant - offset < -5) {
+                _headTopLayout.constant = offset;
+                [_adPageView setNeedsLayout];
+                [UIView animateWithDuration:0.25 animations:^{
+                    [_adPageView layoutIfNeeded];
+                }];
+            } else {
+                _headTopLayout.constant = offset;
+            }
+        }
     } else {
         [_progressView setProgress:0];
         if (scrollView.contentOffset.y > _HeadHeight - 40) {
@@ -317,7 +328,8 @@
             }
         } else {
             _adPageView.hidden = FALSE;
-            _headTopLayout.constant = _HeadTop - scrollView.contentOffset.y * 0.5f;
+            //_headTopLayout.constant = _HeadTop - scrollView.contentOffset.y * 0.5f;
+
             
             _alpha = scrollView.contentOffset.y / (_HeadHeight - 40);
             [self changeNav];

@@ -66,7 +66,8 @@
     self.webView.scrollView.scrollEnabled = FALSE;
     _webHLayout.constant = self.view.frame.size.height - 160 - _toolBar.frame.size.height;
     _webView.delegate = self;
-
+    //_webView.scalesPageToFit = YES;
+    
     _titleLbl.text = _stories.title;
     _headView.layer.zPosition = -1;
     
@@ -260,6 +261,9 @@
                 [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
             }
             _headHLayout.constant = 160 - scrollView.contentOffset.y;
+            if (_headTopLayout.constant != 0) {
+                _headTopLayout.constant = 0;
+            }
         } else {
             _headTopLayout.constant = -scrollView.contentOffset.y * 0.5;
             _headHLayout.constant = 160;
