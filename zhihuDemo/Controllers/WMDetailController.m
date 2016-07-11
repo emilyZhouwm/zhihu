@@ -56,24 +56,25 @@
     self.webView.scrollView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.automaticallyAdjustsScrollViewInsets = FALSE;
-    
+
     [self setCurStories:_indexPath];
-    
+
     self.webView.scrollView.scrollEnabled = FALSE;
     _webHLayout.constant = self.view.frame.size.height - 160 - _toolBar.frame.size.height;
     _webView.delegate = self;
     //_webView.scalesPageToFit = YES;
-    
+
     _titleLbl.text = _stories.title;
     _headView.layer.zPosition = -1;
-    
+
     [self startAnimate];
     [self showGuide];
-   
+
     __weak typeof(self) weakself = self;
     _kvo = [FBKVOController controllerWithObserver:self];
     [_kvo observe:_webView.scrollView keyPath:@"contentSize" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
@@ -95,7 +96,8 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -105,14 +107,13 @@
     _leftBtn.enabled = FALSE;
     _rightBtn.enabled = TRUE;
     __weak typeof(self) weakself = self;
-    [WMNetManager requestStory:_stories.ID.stringValue
-                        andBlock:^(id data, NSError *error) {
-                            weakself.leftBtn.enabled = TRUE;
-                            weakself.rightBtn.enabled = TRUE;
-                            if (data && [data isKindOfClass:[WMStory class]]) {
-                                [weakself setStory:data];
-                            }
-                        }];
+    [WMNetManager requestStory:_stories.ID.stringValue andBlock:^(id data, NSError *error) {
+        weakself.leftBtn.enabled = TRUE;
+        weakself.rightBtn.enabled = TRUE;
+        if (data && [data isKindOfClass:[WMStory class]]) {
+            [weakself setStory:data];
+        }
+    }];
 }
 
 - (void)setStory:(WMStory *)story
@@ -175,9 +176,9 @@
         [self.navigationController popViewControllerAnimated:YES];
         return;
     }
-    
+
     _bottomLayout.constant = -_toolBar.frame.size.height;
-    
+
     [_toolBar setNeedsLayout];
     [UIView animateWithDuration:0.3f animations:^{
         [_toolBar layoutIfNeeded];
@@ -205,11 +206,11 @@
     CGRect frame = _toolBar.frame;
     frame.origin.y += frame.size.height;
     _toolBar.frame = frame;
-    
+
     [UIView animateWithDuration:0.3f animations:^{
         [_iconView layoutIfNeeded];
     } completion:^(BOOL finished) {
-        
+
         _toolBar.alpha = 1;
         [_toolBar setNeedsLayout];
         [UIView animateWithDuration:0.2f animations:^{
@@ -361,13 +362,13 @@
     WMNews *tempNews = [WMZhihu sharedInstance].newsAry[_indexPath.section];
     self.stories = tempNews.stories[_indexPath.row];
     self.stories.selected = TRUE;
-    
+
     if (_stories.images.count > 0) {
         [_iconView sd_setImageWithURL:[NSURL URLWithString:_stories.images[0]]];
     } else if (_stories.image.length > 0) {
         [_iconView sd_setImageWithURL:[NSURL URLWithString:_stories.image]];
     }
-    
+
     WMStories *pre = [self getPre];
     if (pre) {
         [_leftBtn setTitle:[NSString stringWithFormat:@"<%@", pre.title] forState:UIControlStateNormal];
@@ -384,7 +385,7 @@
         [_rightBtn setTitle:@"没有下一篇" forState:UIControlStateNormal];
         _rightBtn.enabled = FALSE;
     }
-    
+
     [self requestStory];
 }
 

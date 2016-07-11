@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^NetworkBlock)(id data, NSError *error);
+typedef void (^NetworkBlock)(id data, NSError *error);
 
 @interface WMNetManager : NSObject
 

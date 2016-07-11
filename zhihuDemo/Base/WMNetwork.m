@@ -19,7 +19,7 @@
     dispatch_once(&onceToken, ^{
         _sharedNetwork = [[WMNetwork alloc] init];
     });
-    
+
     return _sharedNetwork;
 }
 
@@ -42,79 +42,75 @@
     if (!urlPath || urlPath.length <= 0) {
         return;
     }
-    
+
     // log请求数据
     DebugLog(@"\n===========request===========\n%@:\n%@", urlPath, params);
     urlPath = [urlPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
+
     // 发起请求
     switch (NetworkMethod) {
-        case Get:
-        {
+        case Get: {
             [[WMNetwork sharedInstance] GET:urlPath parameters:params
-                progress:^(NSProgress * _Nonnull uploadProgress) {
-                    
-                } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                    NSLog(@"\n===========response GET success===========\n%@:\n%@", urlPath, responseObject);
-                    if (block) {
-                        block(responseObject, nil);
-                    }
-                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                    NSLog(@"\n===========response GET failure===========\n%@:\n%@", urlPath, error);
-                    if (block) {
-                        block(nil, error);
-                    }
-                }];
+                                   progress:^(NSProgress *_Nonnull uploadProgress) {
+
+            } success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
+                NSLog(@"\n===========response GET success===========\n%@:\n%@", urlPath, responseObject);
+                if (block) {
+                    block(responseObject, nil);
+                }
+            } failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
+                NSLog(@"\n===========response GET failure===========\n%@:\n%@", urlPath, error);
+                if (block) {
+                    block(nil, error);
+                }
+            }];
             break;
         }
-        case Post:
-        {
+        case Post: {
             [[WMNetwork sharedInstance] POST:urlPath parameters:params
-                progress:^(NSProgress * _Nonnull uploadProgress) {
-                    
-                } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                    NSLog(@"\n===========response POST success===========\n%@:\n%@", urlPath, responseObject);
-                    if (block) {
-                        block(responseObject, nil);
-                    }
-                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                    NSLog(@"\n===========response POST failure===========\n%@:\n%@", urlPath, error);
-                    if (block) {
-                        block(nil, error);
-                    }
-                }];
+                                    progress:^(NSProgress *_Nonnull uploadProgress) {
+
+            } success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
+                NSLog(@"\n===========response POST success===========\n%@:\n%@", urlPath, responseObject);
+                if (block) {
+                    block(responseObject, nil);
+                }
+            } failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
+                NSLog(@"\n===========response POST failure===========\n%@:\n%@", urlPath, error);
+                if (block) {
+                    block(nil, error);
+                }
+            }];
             break;
         }
-        case Put:
-        {
+        case Put: {
             [[WMNetwork sharedInstance] PUT:urlPath parameters:params
-                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                    NSLog(@"\n===========response PUT success===========\n%@:\n%@", urlPath, responseObject);
-                    if (block) {
-                        block(responseObject, nil);
-                    }
-                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                    NSLog(@"\n===========response PUT failure===========\n%@:\n%@", urlPath, error);
-                    if (block) {
-                        block(nil, error);
-                    }
-                }];
+                                    success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
+                NSLog(@"\n===========response PUT success===========\n%@:\n%@", urlPath, responseObject);
+                if (block) {
+                    block(responseObject, nil);
+                }
+            } failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
+                NSLog(@"\n===========response PUT failure===========\n%@:\n%@", urlPath, error);
+                if (block) {
+                    block(nil, error);
+                }
+            }];
             break;
         }
-        case Delete:
-        {
+        case Delete: {
             [[WMNetwork sharedInstance] DELETE:urlPath parameters:params
-                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                    NSLog(@"\n===========response DELETE success===========\n%@:\n%@", urlPath, responseObject);
-                    if (block) {
-                        block(responseObject, nil);
-                    }
-                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                    NSLog(@"\n===========response DELETE failure===========\n%@:\n%@", urlPath, error);
-                    if (block) {
-                        block(nil, error);
-                    }
-                }];
+                                       success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
+                NSLog(@"\n===========response DELETE success===========\n%@:\n%@", urlPath, responseObject);
+                if (block) {
+                    block(responseObject, nil);
+                }
+            } failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
+                NSLog(@"\n===========response DELETE failure===========\n%@:\n%@", urlPath, error);
+                if (block) {
+                    block(nil, error);
+                }
+            }];
         }
     }
 }

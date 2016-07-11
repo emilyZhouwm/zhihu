@@ -16,8 +16,7 @@ typedef enum {
     Delete
 } NetworkMethod;
 
-typedef void(^NetworkBlock)(id data, NSError *error);
-typedef void(^NetProgressdBlock)(CGFloat progressValue);
+typedef void (^NetworkBlock)(id data, NSError *error);
 
 @interface WMNetwork : AFHTTPSessionManager
 
@@ -27,12 +26,5 @@ typedef void(^NetProgressdBlock)(CGFloat progressValue);
                 withParams:(NSDictionary *)params
             withMethodType:(int)NetworkMethod
                   andBlock:(NetworkBlock)block;
-
-+ (void)uploadImage:(UIImage *)image
-        withFullUrl:(NSString *)urlPath
-         withParams:(NSDictionary *)params
-           withName:(NSString *)name
-           andBlock:(NetworkBlock)block
-      progerssBlock:(NetProgressdBlock)progress;
 
 @end

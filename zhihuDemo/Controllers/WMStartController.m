@@ -36,9 +36,10 @@
     [rootVC.view bringSubviewToFront:startVC.view];
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
+
     UIColor *blackColor = [UIColor blackColor];
     [self addGradientLayerWithColors:@[(id)[blackColor colorWithAlphaComponent:0.4].CGColor, (id)[blackColor colorWithAlphaComponent:0.0].CGColor] locations:nil startPoint:CGPointMake(0.5, 0.0) endPoint:CGPointMake(0.5, 0.4)];
 }
@@ -67,7 +68,7 @@
         } completion:^(BOOL finished) {
             [weakself.view removeFromSuperview];
             [weakself removeFromParentViewController];
-            
+
 //            id navVC = [self.storyboard instantiateViewControllerWithIdentifier:@"WMNavigationController"];
 //            [UIApplication sharedApplication].keyWindow.rootViewController = navVC;
         }];
