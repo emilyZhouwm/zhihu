@@ -242,9 +242,9 @@
                             <mask key="constraints">
                                 <exclude reference="EAf-DH-utX"/>
                                 <exclude reference="WKo-lJ-vGZ"/>
+                                <exclude reference="T6J-xr-6Nl"/>
                                 <exclude reference="MiC-Ib-LNr"/>
                                 <exclude reference="uu1-3a-saI"/>
-                                <exclude reference="T6J-xr-6Nl"/>
                                 <exclude reference="uw8-gA-duY"/>
                             </mask>
                         </variation>
@@ -421,7 +421,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ii-0Q-Hig" customClass="WMProgressView">
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="NxT-Rw-EKb"/>
                                     <constraint firstAttribute="width" constant="20" id="VUF-L3-bXS"/>
@@ -432,16 +432,16 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="BY8-qo-bgl" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="1h6-ep-bMl"/>
-                            <constraint firstAttribute="trailing" secondItem="BY8-qo-bgl" secondAttribute="trailing" id="A0G-Kz-7h3"/>
                             <constraint firstItem="wE9-ym-Vq0" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Ddf-e2-awa"/>
-                            <constraint firstAttribute="trailing" secondItem="Ng4-ed-uoM" secondAttribute="trailing" id="Foe-XQ-4Cg"/>
                             <constraint firstAttribute="bottom" secondItem="BY8-qo-bgl" secondAttribute="bottom" id="J2N-d3-Z3W"/>
                             <constraint firstAttribute="trailing" secondItem="wE9-ym-Vq0" secondAttribute="trailing" id="NKZ-bB-gXt"/>
                             <constraint firstItem="mxq-Pa-SX0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="PLB-yN-i4E"/>
+                            <constraint firstAttribute="trailing" secondItem="Ng4-ed-uoM" secondAttribute="trailing" id="PTw-jY-ulc"/>
                             <constraint firstItem="Ng4-ed-uoM" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-106" id="Qyl-kg-3Nk"/>
                             <constraint firstItem="mxq-Pa-SX0" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="RvP-tk-Xda"/>
                             <constraint firstItem="Ng4-ed-uoM" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="RxL-9c-JsB"/>
                             <constraint firstItem="Ng4-ed-uoM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Sdy-Nu-4ZQ"/>
+                            <constraint firstAttribute="trailing" secondItem="BY8-qo-bgl" secondAttribute="trailing" id="UZW-k5-F1g"/>
                             <constraint firstItem="0Ii-0Q-Hig" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="32" id="VpT-KO-jFG"/>
                             <constraint firstAttribute="trailing" secondItem="mxq-Pa-SX0" secondAttribute="trailing" id="eQm-4G-Atd"/>
                             <constraint firstItem="0Ii-0Q-Hig" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" constant="-48" id="fNG-SM-ern"/>
