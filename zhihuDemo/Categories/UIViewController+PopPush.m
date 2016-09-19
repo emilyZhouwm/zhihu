@@ -18,8 +18,11 @@
 - (void)customerPopViewController
 {
     [self.navigationController popViewControllerWithDuration:DefaultPopTime prelayouts:^(UIView *fromView, UIView *toView) {
+        toView.alpha = 0.0f;
+        fromView.alpha = 1.0f;
     } animations:^(UIView *fromView, UIView *toView) {
         fromView.alpha = 0.0f;
+        toView.alpha = 1.0f;
     } completion:nil];
 }
 
@@ -27,9 +30,12 @@
 {
     [self.navigationController pushViewController:aTargetVC duration:DefaultPushTime prelayouts:^(UIView *fromView, UIView *toView) {
         toView.alpha = 0.0f;
+        fromView.alpha = 1.0f;
     } animations:^(UIView *fromView, UIView *toView) {
         toView.alpha = 1.0f;
+        fromView.alpha = 0.0f;
     } completion:^(UIView *fromView, UIView *toView) {
+        fromView.alpha = 1.0f;
     }];
 }
 

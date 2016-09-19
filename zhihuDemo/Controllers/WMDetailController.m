@@ -65,7 +65,7 @@
     [self setCurStories:_indexPath];
 
     self.webView.scrollView.scrollEnabled = FALSE;
-    _webHLayout.constant = self.view.frame.size.height - 160 - _toolBar.frame.size.height;
+    //_webHLayout.constant = self.view.frame.size.height - 160 - _toolBar.frame.size.height;
     _webView.delegate = self;
     //_webView.scalesPageToFit = YES;
 
@@ -80,7 +80,7 @@
     [_kvo observe:_webView.scrollView keyPath:@"contentSize" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
         weakself.webHLayout.constant = weakself.webView.scrollView.contentSize.height;
         [weakself.webView setNeedsLayout];
-        [weakself.webView layoutIfNeeded];
+        [weakself.webView.superview layoutIfNeeded];
     }];
 }
 
@@ -150,7 +150,7 @@
     //[webView stringByEvaluatingJavaScriptFromString:javascript];
     _webHLayout.constant = webView.scrollView.contentSize.height;
     [_webView setNeedsLayout];
-    [_webView layoutIfNeeded];
+    [_webView.superview layoutIfNeeded];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
@@ -178,18 +178,17 @@
     }
 
     _bottomLayout.constant = -_toolBar.frame.size.height;
-
     [_toolBar setNeedsLayout];
     [UIView animateWithDuration:0.3f animations:^{
-        [_toolBar layoutIfNeeded];
+        [_toolBar.superview layoutIfNeeded];
         _mengView.alpha = 0;
         _webView.alpha = 0;
     } completion:^(BOOL finished) {
+        [self customerPopViewController];
         [UIView animateWithDuration:0.3f animations:^{
             _iconView.frame = self.startRect;
         } completion:^(BOOL finished) {
         }];
-        [self customerPopViewController];
     }];
 }
 
@@ -199,22 +198,21 @@
         return;
     }
     _iconView.frame = self.startRect;
-    [_iconView setNeedsLayout];
     _webView.alpha = 0;
     _mengView.alpha = 0;
     _toolBar.alpha = 0;
-    CGRect frame = _toolBar.frame;
-    frame.origin.y += frame.size.height;
-    _toolBar.frame = frame;
 
     [UIView animateWithDuration:0.3f animations:^{
-        [_iconView layoutIfNeeded];
+        _iconView.frame = CGRectMake((self.view.frame.size.width - 160) * 0.5f, 0, 160, 160);
     } completion:^(BOOL finished) {
 
-        _toolBar.alpha = 1;
-        [_toolBar setNeedsLayout];
+        CGRect frame = _toolBar.frame;
+        frame.origin.y += frame.size.height;
+        _toolBar.frame = frame;
+        frame.origin.y -= frame.size.height;
         [UIView animateWithDuration:0.2f animations:^{
-            [_toolBar layoutIfNeeded];
+            _toolBar.alpha = 1;
+            _toolBar.frame = frame;
         } completion:^(BOOL finished) {
             [UIView animateWithDuration:0.2f animations:^{
                 _webView.alpha = 1;

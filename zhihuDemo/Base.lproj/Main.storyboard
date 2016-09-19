@@ -17,7 +17,7 @@
                         <viewControllerLayoutGuide type="bottom" id="kl0-87-QTN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zvf-gh-vfl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXa-Bk-Qwv">
@@ -250,7 +250,7 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="bottomLayout" destination="uw8-gA-duY" id="aDG-Dn-4H8"/>
+                        <outlet property="bottomLayout" destination="S3C-0R-yTb" id="TPY-JC-3HO"/>
                         <outlet property="guideImg" destination="erS-rD-ZLx" id="v81-mm-632"/>
                         <outlet property="headHLayout" destination="SUo-Ew-NuT" id="lMZ-sC-Lxd"/>
                         <outlet property="headTopLayout" destination="79t-lo-2dw" id="K7Z-dG-6e2"/>
@@ -282,7 +282,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ng4-ed-uoM" customClass="WMAdPageView">
@@ -309,16 +309,16 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="14" minY="0.0" maxX="14" maxY="0.0"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="nV9-KG-ZOQ">
-                                    <rect key="frame" x="0.0" y="106" width="320" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="106" width="375" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="WMHomeCell" rowHeight="84" id="bJT-va-5eE" customClass="WMHomeCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="84"/>
+                                        <rect key="frame" x="0.0" y="22" width="375" height="84"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bJT-va-5eE" id="pyo-D5-wVN">
-                                            <frame key="frameInset" width="320" height="83"/>
+                                            <frame key="frameInset" width="375" height="83"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qsa-fA-oub">
@@ -453,8 +453,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="Qyl-kg-3Nk"/>
                                 <exclude reference="u77-YM-wOg"/>
+                                <exclude reference="Qyl-kg-3Nk"/>
                             </mask>
                         </variation>
                     </view>
@@ -483,7 +483,7 @@
                         <viewControllerLayoutGuide type="bottom" id="T3s-UB-iRS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="B9M-EW-uRZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gqk-Wi-k7R">
@@ -514,7 +514,7 @@
                         <viewControllerLayoutGuide type="bottom" id="D3S-ik-Bcq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MAs-8h-IlZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="p2246994590.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="7Dm-7x-8sg"/>

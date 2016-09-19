@@ -46,6 +46,7 @@
 
     WMHomeCell *_homeCell;
     CGRect _tempRect;
+    CGRect _originalRect;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -127,9 +128,8 @@
     [super viewWillAppear:animated];
     if (_homeCell) {
         _homeCell.iconView.frame = _tempRect;
-        [_homeCell.iconView setNeedsLayout];
         [UIView animateWithDuration:0.3f animations:^{
-            [_homeCell.iconView layoutIfNeeded];
+            _homeCell.iconView.frame = _originalRect;
         } completion:^(BOOL finished) {
             _homeCell = nil;
             [_tableView reloadData];
@@ -265,7 +265,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     _homeCell = (WMHomeCell *)[tableView cellForRowAtIndexPath:indexPath];
-    CGRect startRect = [_homeCell convertRect:_homeCell.iconView.frame toView:nil];
+    _originalRect = _homeCell.iconView.frame;
+    CGRect startRect = [_homeCell convertRect:_originalRect toView:nil];
 
     _tempRect = [_homeCell convertRect:CGRectMake((self.view.frame.size.width - 160) * 0.5f, 0, 160, 160) fromView:nil];
     [UIView animateWithDuration:0.3f animations:^{
@@ -292,7 +293,7 @@
                 _headTopLayout.constant = offset;
                 [_adPageView setNeedsLayout];
                 [UIView animateWithDuration:0.25 animations:^{
-                    [_adPageView layoutIfNeeded];
+                    [_adPageView.superview layoutIfNeeded];
                 }];
             } else {
                 _headTopLayout.constant = offset;
