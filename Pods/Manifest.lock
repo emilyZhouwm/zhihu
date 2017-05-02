@@ -16,9 +16,9 @@ PODS:
     - AFNetworking/NSURLSession
   - KVOController (1.2.0)
   - MJRefresh (3.1.12)
-  - SDWebImage (3.8.2):
-    - SDWebImage/Core (= 3.8.2)
-  - SDWebImage/Core (3.8.2)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
 
 DEPENDENCIES:
   - AFNetworking
@@ -30,6 +30,8 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: f1ebbf86c37fd4a226923b827df5d0c39ba35f2a
+
+COCOAPODS: 1.2.0.beta.1
