@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#define STATUS_HEIGHT [[UIApplication sharedApplication] statusBarFrame].size.height
+#define iPX_LATER (STATUS_HEIGHT > 20.0f)
+#define iPX_NAV_HEIGHT(x) (iPX_LATER ? ((x) + STATUS_HEIGHT - 20) : (x))
+#define iPX_BOTTOM_BAR_HEIGHT(x) (iPX_LATER ? ((x) + 34) : (x))
+
 @interface WMZhihu : NSObject
 
 + (WMZhihu *)sharedInstance;

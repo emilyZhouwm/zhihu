@@ -57,6 +57,10 @@
 @property (weak, nonatomic) IBOutlet WMProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightLayout;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLayout;
+
+
 @property (strong, nonatomic) WMAdTitleView *adTitleView;
 
 @end
@@ -314,7 +318,7 @@
                 return;
             }
             NSIndexPath *indexPath = cellIndex[0];
-            if (indexPath.section + 1 == [WMZhihu sharedInstance].newsAry.count) {
+            if (indexPath.section + 1 == [WMZhihu sharedInstance].newsAry.count || indexPath.section + 2 == [WMZhihu sharedInstance].newsAry.count) {
                 [self requestStories];
             }
             if (indexPath.section <= 1) {

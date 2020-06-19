@@ -39,6 +39,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headHLayout;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *webHLayout;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightLayout;
+
 @property (weak, nonatomic) IBOutlet UIButton *leftBtn;
 @property (weak, nonatomic) IBOutlet UIButton *rightBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *guideImg;
